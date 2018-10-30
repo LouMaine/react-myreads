@@ -7,7 +7,7 @@ class Book extends Component {
         return (
           <div className="book">
             <div className="book-top">
-              <span>{this.props.book.description}</span>
+              <span>{this.props.book.description || "No Description avaliable"}</span>
               <div className="book-cover" style={{ width: 128, height: 188, 
                 backgroundImage: `url("${this.props.book.imageLinks && this.props.book.imageLinks.thumbnail || "" }")` }}></div> {/*//display image thumbnail or blank - same format for title/author/rating*/}
               <div className="book-shelf-changer">
