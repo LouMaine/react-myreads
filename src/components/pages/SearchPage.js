@@ -47,14 +47,15 @@ class SearchPage extends Component {
    
    updateSearched = (query) => {
     if (query){
-            BooksAPI.search(query).then((searchResults)=> // chage state of searchResults
-              {
-            if(searchResults.error){ //if no results when typing/ backspace keep as array
-              this.setState({searchResults: []}) 
+            BooksAPI.search(query).then((searchResults)=> 
+            this.setState({searchResults:searchResults}))
+            // chage state of searchResults
+            if(this.state.searchResults.error){ //if no results when typing/ backspace keep as array
+              this.setState({searchResults: []}) ;
             } else{
 
-              this.setState({searchResults:searchResults})
-            } } )}
+              this.setState({searchResults:this.searchResults})
+            } }
     else {
       this.setState({searchResults: []})
     }
@@ -79,21 +80,16 @@ class SearchPage extends Component {
             </div>
             <div className="search-books-results">
               <ol className="books-grid"> {/*display books matching searchResults*/}
-              	  
-                   {this.state.searchResults.map(searchResult => {
-                    let shelf= "none";
-                    {this.state.books.map((book) => (book.id === searchResult.id ? this.shelf = this.book.shelf : ""));
-                       debugger
-                    console.log(this.book)
-                     return (
-               
-                          <li key={searchResult.id}>
-                          <Book book={this.searchResult}
-                          
-                          updateShelf={this.updateShelf}
-                          
-                         /> </li>)
-                     }})}
+              	  {this.state.searchResults.map(searchResult => {
+                    {this.searchResults.map(book => {book.id === searchResult.id ? this.shelf = this.book.shelf : ""})
+                       return(
+                          <li key={searchResult.id}> 
+                          <Book book={searchResult}
+                             updateShelf={this.updateShelf}
+                              />
+                            </li>) 
+                                }}) }
+
               	</ol>
             </div>
           </div>

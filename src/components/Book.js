@@ -1,10 +1,24 @@
 import React, { Component } from 'react'
+import * as BooksAPI from '../BooksAPI'
 
 class Book extends Component {
-   state = {
+    state = {
  books: [],
 }
 
+  componentDidMount() {
+    BooksAPI.getAll().then((books)=>{
+          this.setState({books: books})}
+    ) }
+
+ updateShelf=  (book, shelf) =>
+    { 
+      BooksAPI.update(book, shelf)
+      .then(resp => {book.shelf = shelf;
+        this.setState(props=> ({ //change shelf of books
+          books: props.books.filter((b)=> b.id !== book.id).concat(book) ,
+          value: this.currentShelf //filter through books- concat those not there
+        }))})}  
 
   render() {
 
