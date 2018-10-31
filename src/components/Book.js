@@ -7,11 +7,11 @@ class Book extends Component {
         return (
           <div className="book">
             <div className="book-top">
-             {/* <span>{this.props.books.description || "No Description avaliable"}</span>*/}
+             <span>{this.props.book.description || "No Description avaliable"}</span>
               <div className="book-cover" style={{ width: 128, height: 188, 
-                backgroundImage: `url("${this.props.book.imageLinks && this.props.book.imageLinks.thumbnail || "" }")` }}></div> {/*//display image thumbnail or blank - same format for title/author/rating*/}
+                backgroundImage: `url("${ this.props.book.imageLinks.thumbnail || "" }")` }}></div> {/*//display image thumbnail or blank - same format for title/author/rating*/}
               <div className="book-shelf-changer">
-                <select value={this.props.book.shelf || "none"} onChange=
+                <select value={this.props.currentShelf } onChange=
                                 {e =>this.props.updateShelf(this.props.book, e.target.value)}>
                   <option value="move" disabled>Move to...</option>
                   <option value="wantToRead">Want to Read</option>

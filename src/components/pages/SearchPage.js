@@ -81,12 +81,14 @@ class SearchPage extends Component {
               <ol className="books-grid"> {/*display books matching searchResults*/}
               	  
                    {this.state.searchResults.map(searchResult => {
-                    {this.state.books.map((book) => {book.id === searchResult.id ? this.shelf = book.shelf : ""});
-                     <li key={searchResult.id}>
-                     <Book book={this.searchResult}
-                     updateShelf={this.updateShelf}
-                     currentShelf= {this.shelf}
-                    /> </li>
+                    let shelf= "none";
+                    {this.state.books.map((book) => (book.id === searchResult.id ? shelf = this.book.shelf : ""));
+                     return (
+                          <li key={searchResult.id}>
+                          <Book book={this.searchResult}
+                          updateShelf={this.updateShelf}
+                          
+                         /> </li>)
                      }})}
               	</ol>
             </div>
