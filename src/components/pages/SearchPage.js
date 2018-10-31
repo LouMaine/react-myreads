@@ -79,8 +79,9 @@ class SearchPage extends Component {
             </div>
             <div className="search-books-results">
               <ol className="books-grid"> {/*display books matching searchResults*/}
-              		{this.state.searchResults.map(searchResult => {
-                    
+              		{{this.state.searchResults.map(books=> {
+                     {this.props.books.map((book) => {book.id === searchResult.id ? this.shelf = book.shelf : ""})
+                   
                     return(
                           <li key={searchResult.id}> 
                             <Book book={searchResult}
@@ -88,7 +89,7 @@ class SearchPage extends Component {
                             currentShelf= {this.shelf}
                            />
                           </li>) 
-                        }}) }
+                        }}) } }
               	</ol>
             </div>
           </div>
