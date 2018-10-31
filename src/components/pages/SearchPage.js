@@ -82,10 +82,11 @@ class SearchPage extends Component {
               	  
                    {this.state.searchResults.map(searchResult => {
                     let shelf= "none";
-                    {this.state.books.map((book) => (book.id === searchResult.id ? shelf = this.book.shelf : ""));
+                    {this.state.books.map((book) => (book.id === searchResult.id ? this.shelf = this.book.shelf : ""));
+                    console.log(searchResult)
                      return (
                           <li key={searchResult.id}>
-                          <Book book={this.searchResult}
+                          <Book book={this.book}
                           updateShelf={this.updateShelf}
                           
                          /> </li>)
