@@ -3,10 +3,6 @@ import React, { Component } from 'react'
 
 class Shelf extends Component {
 
-componentDidMount(){
-  console.log(this);
-}
-
   render(){
     
     return (

@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom'
 import React, { Component } from 'react'
 import * as BooksAPI from '../../BooksAPI'
 import Book from '../Book.js'
-import Shelf from '../Shelf'
+
 
 
 class SearchPage extends Component {
@@ -67,7 +67,7 @@ class SearchPage extends Component {
             <div className="search-books-bar">
               <NavLink to= '/'	className="close-search">Close</NavLink>
               <div className="search-books-input-wrapper">
-              {/*{JSON.stringify(this.state.query)}*/}
+              {JSON.stringify(this.state.query)}
                <input //update state and value of input field
                className="search-text"
                	type="text" //user enters text
@@ -83,10 +83,13 @@ class SearchPage extends Component {
                    {this.state.searchResults.map(searchResult => {
                     let shelf= "none";
                     {this.state.books.map((book) => (book.id === searchResult.id ? this.shelf = this.book.shelf : ""));
-                    console.log(searchResult)
+                       debugger
+                    console.log(this.book)
                      return (
+               
                           <li key={searchResult.id}>
-                          <Book book={this.book}
+                          <Book book={this.searchResult}
+                          
                           updateShelf={this.updateShelf}
                           
                          /> </li>)
